@@ -1,0 +1,132 @@
+body {
+    font-family: sans-serif;
+  }
+  .title{
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+  }
+  .container {
+    display: flex;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .calc_package_product{
+    height: 350px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 3px 5px gray;
+  }
+  .input-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .zipCode-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .left-panel, .right-panel {
+    flex: 1;
+    padding: 20px;
+    
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+    width: 50%;
+  }
+  .service-location{
+    height: 280px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 1px 3px 5px gray;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 7px;
+    resize: none;
+  }
+ 
+  
+  .assignee-options label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: normal;
+  }
+  
+  .calc_defective_products {
+   height: 350px;
+   border-radius: 5px;
+   border: 1px solid;
+   padding: 10px;
+   margin-bottom: 10px;
+   box-shadow: 1px 3px 5px gray;
+  }
+  .time-container {
+    display: flex;
+    justify-content: space-between;
+
+  }
+ .schedule{
+  height: 280px;
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 1px 3px 5px gray;
+ }
+  button {
+    padding: 10px 20px;
+    background-color: #0084ff; /* Example color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 40%;
+    margin: 4px 10px;
+    height: 50px;
+    
+  }
+ .btn_create{
+  background-color: chocolate;
+  height: 40px;
+
+ }
+ .btn_save{
+  background-color: dimgray;
+ }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.result {
+    color: green;
+    font-size: 25px;
+}
+.result_product {
+    color: green;
+    font-size: 25px;
+    margin: 0;
+}
+.semi_finished_product {
+    color: green;
+    font-size: 25px;
+   
+}
+.general_result {
+    display: flex;
+    justify-content: space-between;
+}

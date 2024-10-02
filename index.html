@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Falu Calculator</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+          <div class="calc_package_product">
+            <h3>Введите значение готовой продукции в упаковках</h3>
+              <div class="input-container">
+                <div class="input-group" >
+                  <label for="package"></label>
+                  <input type="text" id="package" name="package" placeholder="Упаковки" required>
+                </div>   
+                <button onclick="calcProduct()" type="submit" class="btn_create">Рассчитать</button>           
+              </div>
+              <p class="result_product" id="result">Результат штук:</p>
+              <div class="general_result">
+                <p class="semi_finished_product" id="general_result">Общее колличество <br>полуфабриката:</p>
+                <button onclick="generalResult()" type="submit" class="btn_create">Рассчитать</button>      
+              </div>
+              
+          </div>         
+        </div>
+        <div class="right-panel">
+            <div class="calc_defective_products">
+              <h3>Введите значение в килограммах</h3>
+              <div class="input-container">
+                <div class="input-group" >
+                  <label for="defective_products"></label>
+                  <input type="text" id="defective_products" name="defective_products" placeholder="Килограммы" required>
+                </div>   
+                <button onclick="calculateDefective()" type="submit" class="btn_create">Рассчитать</button>      
+              </div>           
+              <div class="input-group">
+                <label for="select_type">Выбрать вес упаковки</label>
+                <select id="select_type" name="select_type">
+                  <option value="68">68</option>
+                  <option value="69">69</option>
+                  <option value="70">70</option>
+                </select>                   
+               </div>             
+               <p class="result" id="result_defective">Результат штук:</p>
+            </div>           
+          </div>
+        </div> 
+    <script src="./index.js"></script>
+</body>
+</html>
