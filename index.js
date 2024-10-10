@@ -8,7 +8,7 @@ function calcProduct(){
     const packageValue = parseFloat(inputPackage.value);
     const result = document.getElementById('result');
     let calcResult = packageValue * 300;
-    if (!isNaN(calcResult)){
+    if (!isNaN(calcResult) && packageValue>=0){
         result.textContent = `Результат штук: ${calcResult}`;
     }else{
         result.textContent = 'Пожалуйста, введите корректное значение в упаковках.';
@@ -20,7 +20,7 @@ function calcProduct(){
     const selectWeight = document.getElementById('select_type');
     const kgValue = parseFloat(inputKg.value);
     const selectedWeight = parseFloat(selectWeight.value);
-    if (!isNaN(kgValue)) {
+    if (!isNaN(kgValue) && kgValue>=0) {
       const calculatedResult = calc(kgValue,selectedWeight);
       result.textContent = `Результат штук: ${calculatedResult}`;
      
