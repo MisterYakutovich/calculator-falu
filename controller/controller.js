@@ -28,7 +28,25 @@ router.post('/api/data',async (req, res) => {
     }  
    });
    router.get('/api/get',async (req, res) => {
-    const results = await Packaging.findAll();
-    res.json(results); 
+    try {
+        
+        const semiFinishedProducts = await SemiFinishedProduct.findAll();
+        
+        const packagings = await Packaging.findAll();
+    
+        const defects = await Defect.findAll();
+        console.log(defects)
+        
+        const results = {
+          semiFinishedProducts,
+          packagings,
+          defects
+        }
+        
+        res.json(results);
+      } catch (error) {
+        console.error('Ошибка получения данных:', error);
+        res.status(500).json({ error: 'Ошибка получения данных' });
+      }
 });
    export default router;

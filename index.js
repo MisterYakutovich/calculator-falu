@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000
 
 const start=async()=>{
   try{
-      await sequelize.authenticate()//подключение к БД
+      await sequelize.authenticate()
       console.log("подключение к БД")
       await sequelize.sync().then(() => {
        console.log('Tables created successfully!');
