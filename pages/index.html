@@ -3,10 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Falu Calculator</title>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';"/>
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
+  <div>
+    <a class="button" href="./list.html">Таблица</a> 
+    <!--Modal start-->
+      <div class="for-modal" id="modal">
+        <div class="modal-wrapper">
+         <div class="modal-content">
+            <div class="modal-text">
+              <p id="error"></p>
+              <p id="1"></p>
+              <p id="2"></p>
+              <p id="3"></p>
+              <p id="4"></p>
+              <button onclick="sendData()" id="okay">Отправить</button>
+              <button onclick="closeModal()" id="cancel">Закрыть</button>   
+            </div>
+          </div>
+        </div>
+      </div>
+     <!--Message start-->
+    <div class="message" id="success-message" style="display: none;">Данные успешно отправлены!</div>
+    <!--Message end-->
+    <!--Modal end-->
     <div class="container">
         <div class="left-panel">
           <div class="calc_package_product">
@@ -14,16 +36,15 @@
               <div class="input-container">
                 <div class="input-group" >
                   <label for="package"></label>
-                  <input type="text" id="package" name="package" placeholder="Упаковки" required>
+                  <input  type="text" id="package" name="package" placeholder="Упаковки" required>
                 </div>   
-                <button onclick="calcProduct()" type="submit" class="btn_create">Рассчитать</button>           
+                <button id="submitBtn" onclick="calcProduct()" type="submit" class="btn_create">Рассчитать</button>        
               </div>
               <p class="result_product" id="result">Результат штук:</p>
               <div class="general_result">
                 <p class="semi_finished_product" id="general_result">Общее колличество <br>полуфабриката:</p>
                 <button onclick="generalResult()" type="submit" class="btn_create">Рассчитать</button>      
               </div>
-              
           </div>         
         </div>
         <div class="right-panel">
@@ -35,7 +56,7 @@
                   <input type="text" id="defective_products" name="defective_products" placeholder="Килограммы" required>
                 </div>   
                 <button onclick="calculateDefective()" type="submit" class="btn_create">Рассчитать</button>      
-              </div>           
+              </div>      
               <div class="input-group">
                 <label for="select_type">Выбрать вес упаковки</label>
                 <select id="select_type" name="select_type">
@@ -53,7 +74,11 @@
                <p class="result" id="result_defective">Результат штук:</p>
             </div>           
           </div>
+          <div class="post_data">
+            <button onclick="openModal()">Отправить</button>
+          </div>            
         </div> 
-    <script src="./index.js"></script>
+      </div>
+    <script src="../index.js"></script>
 </body>
 </html>
