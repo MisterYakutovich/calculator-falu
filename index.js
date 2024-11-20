@@ -25,7 +25,7 @@ const start=async()=>{
        })
        .catch((error) => {
         console.error('Error creating tables:', error);
-       }) // sync() сверяет состояние БД,{ force: true } пересоздать таблицы
+       })
      
       app.listen(PORT,()=>console.log(`Server start on port ${PORT}`))
   }catch(e){
