@@ -31,7 +31,8 @@ const PORT = process.env.PORT || 5000
       res.status(500).send("Ошибка подключения к базе данных");
   }
 }*/
-export const start=async()=>{
+
+ const start=async()=>{
   try{
       await sequelize.authenticate()
       console.log("подключение к БД")
@@ -48,4 +49,4 @@ export const start=async()=>{
       console.log(e)
   }
 }
-start()
+export default start()
