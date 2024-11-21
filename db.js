@@ -6,7 +6,7 @@ const getDialectModule = async () => {
    const { default: mysql2 } = await import('mysql2');
    return mysql2;
   };
-
+  
 export const sequelize=  new Sequelize(
    process.env.DB_NAME, 
    process.env.DB_USER, 
