@@ -15,8 +15,22 @@ const PORT = process.env.PORT || 5000
  app.use(controller);
  app.get(controller)
 
-
-const start=async()=>{
+ export default async function handler(req, res) {
+  
+  try {
+      await sequelize.authenticate();
+      console.log("Подключение к БД");
+      await sequelize.sync().then(() => {
+        console.log('Tables created successfully!');
+        })
+     
+      app(req, res);
+  } catch (error) {
+      console.error("Ошибка подключения к БД:", error);
+      res.status(500).send("Ошибка подключения к базе данных");
+  }
+}
+/*const start=async()=>{
   try{
       await sequelize.authenticate()
       console.log("подключение к БД")
@@ -33,4 +47,4 @@ const start=async()=>{
       console.log(e)
   }
 }
-start()
+start()*/
