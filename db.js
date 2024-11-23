@@ -16,6 +16,12 @@ export const sequelize=  new Sequelize(
    dialect: 'mysql',
    dialectModule: await getDialectModule(),
    logging: console.log,
+   pool: {
+      max: 10,
+      min: 0,
+      acquire: 30000,
+      idle: 10000,
+    },
    });
 
    (async () => {

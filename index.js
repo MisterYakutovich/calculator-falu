@@ -29,7 +29,7 @@ const PORT = process.env.PORT || 5000
   }
 };
 
-export default start;
+export default start();
 /*export default async function handler(req, res) {
   
   try {
