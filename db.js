@@ -17,3 +17,12 @@ export const sequelize=  new Sequelize(
    dialectModule: await getDialectModule(),
    logging: console.log,
    });
+
+   (async () => {
+      try {
+          await sequelize.authenticate();
+          console.log('Соединение с базой данных успешно установлено.');
+      } catch (error) {
+          console.error('Не удалось подключиться к базе данных:', error);
+      }
+  })();
