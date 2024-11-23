@@ -15,7 +15,22 @@ const PORT = process.env.PORT || 5000
  app.use(controller);
  app.get(controller)
 
- /*export default async function handler(req, res) {
+ 
+ const start = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Подключение к БД успешно!');
+    await sequelize.sync({ force: false }); // force: false - не удалять таблицы при синхронизации
+    console.log('Таблицы синхронизированы!');
+    app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
+  } catch (error) {
+    console.error('Критическая ошибка:', error);
+    process.exit(1); 
+  }
+};
+
+export default start;
+/*export default async function handler(req, res) {
   
   try {
       await sequelize.authenticate();
@@ -31,22 +46,3 @@ const PORT = process.env.PORT || 5000
       res.status(500).send("Ошибка подключения к базе данных");
   }
 }*/
-
- const start=async()=>{
-  try{
-      await sequelize.authenticate()
-      console.log("подключение к БД")
-      await sequelize.sync().then(() => {
-       console.log('Tables created successfully!');
-       })
-       .catch((error) => {
-        console.error('Error creating tables:', error);
-       })
-     
-      app.listen(PORT,()=>console.log(`Server start on port ${PORT}`))
-  }catch(e){
-    console.log("error")
-      console.log(e)
-  }
-}
-export default start()
