@@ -13,9 +13,11 @@ const PORT = process.env.PORT || 5000
  app.use(express.json())
  app.use(bodyParser.json());
  app.use(controller);
- app.get(controller)
 
- 
+ app.get('/api/test', (req, res) => {
+  res.send('API работает');
+});
+
  const start = async () => {
   try {
     await sequelize.authenticate();
@@ -29,7 +31,14 @@ const PORT = process.env.PORT || 5000
   }
 };
 
-export default start();
+export default async (req, res) => {
+  if (!app.listen) {
+    await start();
+  }
+  
+  app(req, res);
+};
+
 /*export default async function handler(req, res) {
   
   try {
