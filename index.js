@@ -9,7 +9,11 @@ import { SemiFinishedProduct, Packaging, Defect } from './models/models.js';
 dotenv.config();
 const app = express()
 const PORT = process.env.PORT || 5000
- app.use(cors());
+ app.use(cors({
+  origin: '*', // Замените на ваш домен
+  methods: ['GET', 'POST'], // Разрешенные методы
+  allowedHeaders: ['Content-Type'], // Разрешенные заголовки
+}));
  app.use(express.json())
  app.use(bodyParser.json());
  app.use(controller);
@@ -35,23 +39,5 @@ export default async (req, res) => {
   if (!app.listen) {
     await start();
   }
-  
   app(req, res);
 };
-
-/*export default async function handler(req, res) {
-  
-  try {
-      await sequelize.authenticate();
-      console.log("Подключение к БД");
-      await sequelize.sync().then(() => {
-        console.log('Tables created successfully!');
-        })
-     
-      app(req, res);
-  } catch (error) {
-   
-      console.error("Ошибка подключения к БД:", error);
-      res.status(500).send("Ошибка подключения к базе данных");
-  }
-}*/
