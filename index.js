@@ -9,12 +9,7 @@ import { SemiFinishedProduct, Packaging, Defect } from './models/models.js';
 dotenv.config();
 const app = express()
 const PORT = process.env.PORT || 5000
- app.use(cors(
-  {
-    origin: 'http://localhost:5501',
-    
-}
- ));
+ app.use(cors());
  app.use(express.json())
  app.use(bodyParser.json());
  app.use(controller);
