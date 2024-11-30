@@ -1,5 +1,5 @@
 async function getData() {
-    const url = "http://localhost:5000/api/get";
+    const url = "https://calculator-falu.vercel.app/api/get";
     try {
         const response = await fetch(url);
         if (!response.ok) {

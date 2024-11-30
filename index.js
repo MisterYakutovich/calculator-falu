@@ -67,7 +67,8 @@ function sendData(){
         package1: parseInt(packageValue,10)
     };
 
-const url ="http://localhost:5000/api/data"
+const url ="https://calculator-falu.vercel.app/api/data"
+
   fetch(url,{
     method:"POST",
     headers:{
