@@ -30,13 +30,9 @@ router.post('/api/data',async (req, res) => {
    router.get('/api/get',async (req, res) => {
     try {
         
-        const semiFinishedProducts = await SemiFinishedProduct.findAll();
-        
-        const packagings = await Packaging.findAll();
-    
-        const defects = await Defect.findAll();
-        console.log(defects)
-        
+        const semiFinishedProducts = await SemiFinishedProduct.findAll();       
+        const packagings = await Packaging.findAll();    
+        const defects = await Defect.findAll();      
         const results = {
           semiFinishedProducts,
           packagings,
@@ -49,4 +45,48 @@ router.post('/api/data',async (req, res) => {
         res.status(500).json({ error: 'Ошибка получения данных' });
       }
 });
-   export default router;
+
+router.put('/api/:id', async (req, res) => {
+    console.log('PUT запрос получен');
+    const { quantity, quantity_in_pieces_pkg, quantity_in_pieces_defect, totalQuantity} = req.body;
+    const id = parseInt(req.params.id, 10);
+    console.log('Данные для обновления:', req.body);
+    try {
+        if (quantity !== undefined || quantity_in_pieces_pkg !== undefined) {
+            const [updatedRows] = await Packaging.update(
+                { quantity, quantity_in_pieces_pkg },
+                { where: { id } }
+            );
+            if (updatedRows[0] === 0) {
+                return res.status(404).json({ error: 'Упаковка не найдена' });
+            }
+            return res.json({ message: 'Данные упаковки успешно обновлены' });
+        }      
+        if (quantity_in_pieces_defect !== undefined) {
+            const [updatedRows] = await Defect.update(
+                { quantity_in_pieces_defect },
+                { where: { id } }
+            );
+            if (updatedRows[0] === 0) {
+                return res.status(404).json({ error: 'Брак не найден' });
+            }
+            return res.json({ message: 'Данные дефекта успешно обновлены' });
+        }
+        if (totalQuantity !== undefined) {
+            const [updatedRows] = await SemiFinishedProduct.update(
+                { totalQuantity },
+                { where: { id } }
+            );
+            if (updatedRows[0] === 0) {
+                return res.status(404).json({ error: 'Полуфабрикат не найден' });
+            }
+            return res.json({ message: 'Данные полуфабриката успешно обновлены' });
+        }
+        return res.status(400).json({ error: 'Нет данных для обновления' });
+    } catch (error) {
+        console.error('Ошибка обновления данных:', error);
+        res.status(500).json({ error: 'Ошибка сервера' });
+    }
+});
+
+export default router;
