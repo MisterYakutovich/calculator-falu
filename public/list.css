@@ -52,3 +52,150 @@
     background-position: 0 100%;
     background-color: #499a18;
   }
+  .update-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  /*ModalUpdate*/
+  .modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+/* Стиль для модального контента */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 950px; 
+    border-radius: 5px;
+}
+
+/* Кнопка закрытия */
+.close {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  float: right;
+}
+
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Стиль для кнопки */
+.save-button {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;  
+    margin-top: 15px;
+    margin-left: 25%;
+}
+
+.save-button:hover {
+    background-color: #45a049; /* Цвет при наведении */
+}
+#editForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.form-container_data_1_title{
+  margin:0 0 10px 0;
+  text-align: center;
+}
+.form-container_data_2_title{
+  margin: 10px 0 10px 0;
+  text-align: center;
+}
+.form-container_data_3_title{
+  margin:0 0 10px 0;
+  text-align: center;
+}
+.form-container_data_4_title{
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+.save-button_defect{
+  margin-top: 75px;
+  background-color: #4CAF50; 
+  color: white; 
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;  
+  margin-left: 25%;
+}
+.save-button_SemiFinishedProducts{
+  margin-top: 75px;
+  background-color: #4CAF50; 
+  color: white; 
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;  
+  margin-left: 25%;
+}
+.form-container_1{
+ border: 2px solid rgb(93, 224, 126);
+ padding: 15px;
+ border-radius: 5px;
+ 
+}
+
+
+.form-container_2{
+  border: 2px solid rgb(93, 224, 126);
+  padding: 15px;
+  border-radius: 5px;
+  
+ }
+ .form-container_3{
+  border: 2px solid rgb(93, 224, 126);
+  padding: 15px;
+  border-radius: 5px;
+  
+ }
+#quantity {
+  height: 20px;
+  font-size: 20px;
+}
+#pieces_pkg{
+  height: 20px;
+  font-size: 20px;
+}
+#defect{
+  height: 20px;
+  font-size: 20px;
+}
+#semiFinishedCell{
+  height: 20px;
+  font-size: 20px;
+}

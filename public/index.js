@@ -68,7 +68,7 @@ function sendData(){
     };
 
 const url ="https://calculator-falu.vercel.app/api/data"
-
+//const url = "http://localhost:5000/api/data"
   fetch(url,{
     method:"POST",
     headers:{
