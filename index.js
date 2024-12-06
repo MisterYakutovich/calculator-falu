@@ -31,10 +31,10 @@ const PORT = process.env.PORT || 5000
   }
 };
 
-//export default async (req, res) => {
- // if (!app.listen) {
-   // await start();
- // }
- // app(req, res);
-//};
-start()
+export default async (req, res) => {
+  if (!app.listen) {
+    await start();
+  }
+  app(req, res);
+};
+//start()
